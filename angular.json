@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-wui": {
+      "projectType": "library",
+      "root": "projects/ngx-wui",
+      "sourceRoot": "projects/ngx-wui/src",
+      "prefix": "wui",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-wui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-wui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-wui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-wui/src/test.ts",
+            "tsConfig": "projects/ngx-wui/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-wui/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-wui"
 }
