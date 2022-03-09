@@ -1,6 +1,6 @@
-# NgxWui
+# NgxWUI 🎨
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+> Angular Library containing essential UI components overriding MaterialAngular components..
 
 ## Code scaffolding
 
