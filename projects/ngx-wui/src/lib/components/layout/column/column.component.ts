@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import {
+	Component,
+	HostBinding,
+	Input,
+	OnInit,
+	ViewEncapsulation,
+} from '@angular/core';
+
+type ColumnSizes =
+	| 'three-quarters'
+	| 'two-thirds'
+	| 'half'
+	| 'one-third'
+	| 'one-quarter'
+	| 'full';
 
 @Component({
-  selector: 'wui-column',
-  templateUrl: './column.component.html',
-  styleUrls: ['./column.component.css']
+	selector: 'wui-column',
+	styleUrls: ['./column.component.scss'],
+	template: '<ng-content></ng-content>',
+	encapsulation: ViewEncapsulation.None,
+	host: {class: 'column'},
 })
 export class ColumnComponent implements OnInit {
+	@Input() size?: ColumnSizes;
+	@Input() align? = 'stretch';
 
-  constructor() { }
+	@HostBinding('class') class = this.size ? `is-${this.size}` : '';
 
-  ngOnInit(): void {
-  }
+	constructor() {
+		const test = this.align === 'stretch';
+	}
 
+	ngOnInit = (): void => {};
 }

@@ -1,18 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, HostBinding, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'wui-container',
-  templateUrl: './container.component.html',
-  styleUrls: ['./container.component.scss']
+	selector: 'wui-container',
+	template: '<ng-content></ng-content>',
+	encapsulation: ViewEncapsulation.None,
+	styleUrls: ['./container.component.scss'],
+	host: {class: 'container columns'},
 })
+export class ContainerComponent {
+	@Input() gap = 2;
+	@Input() size: 'desktop' | 'widescreen' | 'fullhd' = 'fullhd';
 
-export class ContainerComponent implements OnInit {
+	@Input() justify? = 'space-evenly';
+	@Input() align? = 'stretch';
 
-  @Input() justify?: string;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+	@HostBinding('class') class = `is-${this.gap}`;
+	@HostBinding('style')
+	style = `justify-content: ${this.justify}; align-items: ${this.align};`;
 }

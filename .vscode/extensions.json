@@ -1,4 +1,50 @@
+/* The following extensions will help you run all sort of application */
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
-  "recommendations": ["angular.ng-template"]
+  "recommendations": [
+    //"ms-azuretools.vscode-docker", //? Adds Docker into VSCODE
+
+    //! VSCODE Intellisense
+    "TabNine.tabnine-vscode", //? Autocompletion AI (freemium)
+    "christian-kohler.npm-intellisense", //? Automplete when searching for npm packages
+    "christian-kohler.path-intellisense", //? Automplete when searching for npm packages
+    "wix.vscode-import-cost", //? Estimate size of each import in TS files
+
+    //! VSCODE GLOBAL Configuration (DO NOT REMOVE)
+    "ms-vscode-remote.remote-ssh", //? Plugin to configure remote SHH connection
+    "esbenp.prettier-vscode", //? Primary code formatter
+    "dbaeumer.vscode-eslint", //? JS formatter
+
+    //! Git & DOCUMENTATION
+    "aaron-bond.better-comments", //? colored comments
+    "qezhu.gitlink", //? git link to Git remote's version (on browser)
+
+    //! Live Server
+    "ritwickdey.LiveServer", //? live server to launch small HTML pages.
+
+    //! Themes
+    "PKief.material-icon-theme", //? Material Icons
+    "Equinusocio.vsc-community-material-theme", //? Material Theme
+    // "kyleerickson.night-rider", //? Purples shades' theme
+
+    //! Language supports (depend on project(s) you are working on ..)
+
+    //* WEB APPS
+    "ecmel.vscode-html-css", //? HTML id and class attribute completion for Visual Studio Code.
+    "xabikos.JavaScriptSnippets", //? Javascripts code snippets
+    "angular.ng-template", //? Angular official templates
+    "johnpapa.angular-essentials", //? Angular Essentials => TO EXTRACT
+    "syler.sass-indented", //? Indented Sass syntax Highlighting, Autocomplete & Formatter
+    "whatwedo.twig", //? Syntax highlighting for PHP Twig
+
+    //* Symfony
+    "duboiss.sf-pack", //? Symfony Essentials Pack
+
+    //* MARKDOWN
+    "DavidAnson.vscode-markdownlint", //? syntax Highlighting for Markdown files
+    "bierner.github-markdown-preview" //? Preview .md files into VSCODE
+
+    //* PYTHON
+    // "donjayamanne.python-extension-pack", //? Python Essentials Pack => TO EXTRACT
+  ]
 }
