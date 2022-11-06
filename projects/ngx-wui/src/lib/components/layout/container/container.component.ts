@@ -1,5 +1,15 @@
-import {Component, HostBinding, Input, ViewEncapsulation} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {
+	Component,
+	HostBinding,
+	Input,
+	NgModule,
+	ViewEncapsulation,
+} from '@angular/core';
 
+/**
+ ** Container component to wrap various content (helps with responsive)
+ */
 @Component({
 	selector: 'wui-container',
 	template: '<ng-content></ng-content>',
@@ -7,14 +17,26 @@ import {Component, HostBinding, Input, ViewEncapsulation} from '@angular/core';
 	styleUrls: ['./container.component.scss'],
 	host: {class: 'container columns'},
 })
-export class ContainerComponent {
+export class WuiContainerComponent {
 	@Input() gap = 2;
 	@Input() size: 'desktop' | 'widescreen' | 'fullhd' = 'fullhd';
 
+	@Input() flow? = 'row';
 	@Input() justify? = 'space-evenly';
 	@Input() align? = 'stretch';
 
 	@HostBinding('class') class = `is-${this.gap}`;
 	@HostBinding('style')
-	style = `justify-content: ${this.justify}; align-items: ${this.align};`;
+	style = `
+		flex-flow:  ${this.flow};
+		justify-content: ${this.justify};
+		align-items: ${this.align};
+	`;
 }
+
+@NgModule({
+	imports: [CommonModule],
+	declarations: [WuiContainerComponent],
+	exports: [WuiContainerComponent],
+})
+export class WuiContainerModule {}

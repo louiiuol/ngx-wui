@@ -1,6 +1,6 @@
 {
 	"name": "ngx-wui",
-	"version": "0.0.4",
+	"version": "0.1.0",
 	"peerDependencies": {
 		"@angular/common": "^14.0.0",
 		"@angular/core": "^14.0.0"
@@ -8,6 +8,7 @@
 	"dependencies": {
 		"@angular/cdk": "^14.2.5",
 		"@angular/material": "^14.2.5",
+		"bulma": "0.9.4",
 		"tslib": "^2.3.0"
 	}
 }

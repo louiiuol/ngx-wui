@@ -1,12 +1,13 @@
+import {CommonModule} from '@angular/common';
 import {
 	Component,
 	HostBinding,
 	Input,
-	OnInit,
+	NgModule,
 	ViewEncapsulation,
 } from '@angular/core';
 
-type ColumnSizes =
+export type ColumnSizes =
 	| 'three-quarters'
 	| 'two-thirds'
 	| 'half'
@@ -16,20 +17,22 @@ type ColumnSizes =
 
 @Component({
 	selector: 'wui-column',
-	styleUrls: ['./column.component.scss'],
+	styles: ["@import 'bulma/sass/grid/columns';"],
+	//styleUrls: ['./column.component.scss'],
 	template: '<ng-content></ng-content>',
 	encapsulation: ViewEncapsulation.None,
 	host: {class: 'column'},
 })
-export class ColumnComponent implements OnInit {
+export class WuiColumnComponent {
 	@Input() size?: ColumnSizes;
 	@Input() align? = 'stretch';
 
 	@HostBinding('class') class = this.size ? `is-${this.size}` : '';
-
-	constructor() {
-		const test = this.align === 'stretch';
-	}
-
-	ngOnInit = (): void => {};
 }
+
+@NgModule({
+	imports: [CommonModule],
+	declarations: [WuiColumnComponent],
+	exports: [WuiColumnComponent],
+})
+export class WuiColumnModule {}

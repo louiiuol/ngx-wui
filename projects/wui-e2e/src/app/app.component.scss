@@ -1,9 +1,432 @@
+/**
+Material base configuration
+ */
+@use '@angular/material' as mat;
+@import '@angular/material/theming'; // Custom Theming for Angular Material
+
+$custom-typography: mat.define-typography-config(
+	$font-family: '"Open Sans", sans-serif;',
+);
+@include mat.core(
+	$custom-typography
+); // Include the common styles for Angular Material.
+
 :host {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    font-size: 3em;
-    .left {
-        width: 400px;
-    }
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	width: 100%;
+	display: flex;
+	font-size: 3em;
+}
+
+/**
+ COLORS
+	*/
+$blue: (
+	50: #e1e0ee,
+	100: #b5b3d5,
+	200: #8480ba,
+	300: #524d9e,
+	400: #2d2689,
+	500: #080074,
+	600: #07006c,
+	700: #060061,
+	800: #040057,
+	900: #020044,
+	A100: #7979ff,
+	A200: #4646ff,
+	A400: #1313ff,
+	A700: #0000f8,
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #ffffff,
+		400: #ffffff,
+		500: #ffffff,
+		600: #ffffff,
+		700: #ffffff,
+		800: #ffffff,
+		900: #ffffff,
+		A100: #000000,
+		A200: #ffffff,
+		A400: #ffffff,
+		A700: #ffffff,
+	),
+);
+$green: (
+	50: #e6f9f7,
+	100: #c0efea,
+	200: #96e5dd,
+	300: #6bdbcf,
+	400: #4cd3c4,
+	500: #2ccbba,
+	600: #27c6b3,
+	700: #21beab,
+	800: #1bb8a3,
+	900: #10ac94,
+	A100: #dbfff9,
+	A200: #a8fff0,
+	A400: #75ffe8,
+	A700: #5cffe3,
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #ffffff,
+		400: #ffffff,
+		500: #ffffff,
+		600: #ffffff,
+		700: #ffffff,
+		800: #ffffff,
+		900: #ffffff,
+		A100: #000000,
+		A200: #ffffff,
+		A400: #ffffff,
+		A700: #ffffff,
+	),
+);
+$red: (
+	// Defines Warnings Palette color
+	50: #fee8e7,
+	100: #fdc6c4,
+	200: #fca19d,
+	300: #fb7b75,
+	400: #fa5e58,
+	500: #f9423a,
+	600: #f83c34,
+	700: #f7332c,
+	800: #f62b25,
+	900: #f51d18,
+	A100: #ffffff,
+	A200: #fff3f3,
+	A400: #ffc1c0,
+	A700: #ffa8a7,
+	contrast: (
+		50: $dark-primary-text,
+		100: $dark-primary-text,
+		200: $dark-primary-text,
+		300: $light-primary-text,
+		400: $light-primary-text,
+		500: $light-primary-text,
+		600: $light-primary-text,
+		700: $light-primary-text,
+		800: $light-primary-text,
+		900: $light-primary-text,
+		A100: $dark-primary-text,
+		A200: $light-primary-text,
+		A400: $light-primary-text,
+		A700: $light-primary-text,
+	)
+);
+$pink: (
+	50: #f8e9fb,
+	100: #edc8f6,
+	200: #e2a3f0,
+	300: #d67eea,
+	400: #cd63e6,
+	500: #c447e1,
+	600: #be40dd,
+	700: #b637d9,
+	800: #af2fd5,
+	900: #a220cd,
+	A100: #ffffff,
+	A200: #f3d2ff,
+	A400: #e59fff,
+	A700: #de85ff,
+	contrast: (
+		50: #000000,
+		100: #000000,
+		200: #000000,
+		300: #000000,
+		400: #000000,
+		500: #ffffff,
+		600: #ffffff,
+		700: #ffffff,
+		800: #ffffff,
+		900: #ffffff,
+		A100: #000000,
+		A200: #000000,
+		A400: #000000,
+		A700: #000000,
+	),
+);
+$primary: mat.define-palette($blue); // Defines Primary color
+$accent: mat.define-palette($green); // Defines accent (secondary) color
+$warn: mat.define-palette($red); // Defines Warnings color
+$theme: mat.define-light-theme(
+	$primary,
+	$accent,
+	$warn
+); // Inject new colors in Material Components
+@include mat.all-component-themes(
+	$theme
+); // Export the new theme in angular project
+
+$primary-dark: mat.define-palette(
+	$pink
+); // Defines Primary color fro the Dark Theme
+$angular-dark-theme: mat.define-dark-theme($primary-dark, $accent, $warn);
+
+.darkMode {
+	@include mat.all-component-colors($angular-dark-theme);
+}
+
+/* CUSTOM STYLES */
+.is-accent {
+	color: mat.get-color-from-palette($accent) !important;
+} // Export accent color as reusable class in project stylesheets
+.is-primary {
+	color: mat.get-color-from-palette($primary) !important;
+} // Export primary color as reusable class in project stylesheets
+.darkMode .is-primary {
+	color: mat.get-color-from-palette($primary-dark) !important;
+} // Export primary color as reusable class in project stylesheets
+.is-warn {
+	color: mat.get-color-from-palette($warn) !important;
+} // Export warning color as reusable class in project stylesheets
+.is-success {
+	color: #26da35 !important;
+} // Export success color as reusable class in project stylesheets
+.is-orange {
+	color: #ff6900 !important;
+}
+.is-accent-border {
+	border-style: solid;
+	border-width: 3px;
+	border-color: mat.get-color-from-palette($accent) !important;
+}
+
+/**
+ SNACKBAR
+	*/
+snack-bar-container {
+	// Defines shared SnackBar Global custom styles
+	width: auto !important;
+	background: #ffffff !important;
+	color: mat.get-color-from-palette($accent) !important;
+	border: 1px solid currentColor;
+	margin-top: 70px !important;
+}
+
+/**
+ CARD
+	*/
+.mat-card {
+	// Defines custom styles for mat card & dialog,containing form
+	.mat-card-actions {
+		display: flex;
+		flex-flow: row wrap;
+		button {
+			margin: 1rem;
+		}
+	}
+}
+.mat-card-header-text {
+	width: 100%;
+}
+
+/**
+ MENU
+	*/
+.mat-menu-panel {
+	// Add margins to menus dropdown overlay
+	margin-top: 0.5rem !important;
+	min-height: auto !important;
+	&.expanded {
+		max-width: inherit !important;
+		max-height: inherit !important;
+		overflow: inherit;
+	}
+	.mat-menu-content:not(:empty) {
+		// Defines custom style for content wrapper
+		max-width: 450px !important;
+	}
+}
+.menu-item {
+	display: flex !important;
+	justify-content: flex-start;
+	align-items: center;
+	& > * {
+		margin: 0 5px;
+	}
+}
+
+/**
+ EXPANSION PANEL
+	*/
+
+green-queue {
+	.mat-content {
+		justify-content: space-between;
+		.mat-expansion-panel-header-description {
+			flex-grow: inherit;
+		}
+	}
+	.mat-expansion-panel-body {
+		padding: 0 !important;
+	}
+}
+
+/**
+ BUTTONS
+	*/
+.mat-ink-bar {
+	display: none;
+}
+.mat-chip-list-wrapper {
+	justify-content: space-evenly !important;
+} // Fixing default Material behaviour
+.mat-fab .mat-button-wrapper {
+	padding: 4px 0 !important;
+} // Fixing default Material behaviour
+.mat-button-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	flex-grow: 1;
+	min-height: 32px;
+}
+.stretched > .mat-button-wrapper {
+	justify-content: stretch;
+	text-align: left;
+}
+/**
+ STEPPER
+	*/
+.mat-step-icon-content {
+	display: flex;
+}
+#report-stepper .mat-step-header {
+	pointer-events: none !important;
+}
+
+/**
+ TABLE
+	*/
+.mat-sort-header-container {
+	display: inline-flex !important;
+}
+td.mat-cell,
+.mat-header-cell {
+	padding: 0.5em !important;
+}
+
+/**
+ TABS
+	*/
+.mat-tab-body-content {
+	height: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+.mat-tab-group,
+.mat-tab-body-wrapper {
+	flex-grow: 1;
+}
+
+.mat-tab-label-active {
+	color: #2d2689;
+	font-weight: 500;
+	opacity: 1 !important;
+}
+.mat-tab-header {
+	border-bottom: 0;
+}
+
+/**
+ FORMS
+	*/
+
+.spaceless .mat-form-field-appearance-outline .mat-form-field-wrapper {
+	padding-bottom: 0 !important;
+}
+.mat-form-field.no-padding > .mat-form-field-wrapper {
+	padding-bottom: 0 !important;
+}
+mat-slide-toggle label {
+	flex: 0 !important;
+}
+.mat-slide-toggle.reverse {
+	label {
+		flex-direction: row-reverse;
+	}
+}
+.mat-slide-toggle {
+	flex: 1;
+}
+
+.mat-icon-no-color {
+	color: currentColor !important;
+}
+.mat-icon {
+	&.xs {
+		width: 0.85rem;
+		height: 0.85rem;
+		font-size: 0.85rem;
+	}
+	&.xsm {
+		width: 1.25rem;
+		height: 1.25rem;
+		font-size: 1.25rem;
+	}
+	&.sm {
+		width: 2rem;
+		height: 2rem;
+		font-size: 2rem;
+	}
+	&.md {
+		width: 3.5rem;
+		height: 3.5rem;
+		font-size: 3.5rem;
+	}
+	&.lg {
+		width: 5rem;
+		height: 5rem;
+		font-size: 5rem;
+	}
+	&.xl {
+		width: 6.5rem;
+		height: 6.5rem;
+		font-size: 6.5rem;
+	}
+	&.xxl {
+		width: 8rem;
+		height: 8rem;
+		font-size: 8rem;
+	}
+}
+
+mat-select.option-selector {
+	.mat-select-trigger,
+	.mat-select-arrow-wrapper {
+		display: block;
+		height: 0;
+		width: 0;
+		overflow: hidden;
+	}
+}
+
+.autoComplete {
+	& > .mat-menu-content:not(:empty) {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+		width: 300px;
+	}
+	mat-form-field {
+		margin-right: 0 !important;
+	}
+	& > .mat-form-field-wrapper {
+		margin: 0 !important;
+		padding-bottom: 0 !important;
+	}
+	& > mat-form-field-appearance-outline {
+		margin: 0 !important;
+	}
+}
+
+.mat-horizontal-content-container {
+	padding: 0 !important;
 }
