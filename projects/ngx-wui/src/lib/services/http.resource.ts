@@ -50,7 +50,7 @@ export abstract class HttpResource<R> implements IHttpResource {
 	abstract root: string; //? .../api/resources
 	constructor(protected http: HttpClient) {}
 
-	get = (uuid: string): Observable<R | undefined> =>
+	get = <R>(uuid: string): Observable<R | undefined> =>
 		this.http
 			.get<APIResponse<R>>(this.specificURI(uuid))
 			.pipe(catchError(this.catchError))

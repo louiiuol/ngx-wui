@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {WuiTableModule, WuiDataViewerModule} from 'ngx-wui';
+import {WuiTableComponent, WuiDataViewerComponent} from 'ngx-wui';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -8,9 +8,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
-		WuiTableModule,
+		WuiTableComponent,
 		BrowserAnimationsModule,
-		WuiDataViewerModule,
+		WuiDataViewerComponent,
 	],
 	// providers: [UserResource],
 	bootstrap: [AppComponent],

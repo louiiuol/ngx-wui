@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
-import {map, Observable, of} from 'rxjs';
+import {WuiDataViewerConfig} from 'ngx-wui';
 
-import {DeserializeArray, JsonArray} from 'cerializr';
 import {Car} from './car';
+import {UserView} from './user';
 
 @Component({
 	selector: 'app-root',
@@ -10,11 +10,20 @@ import {Car} from './car';
 	styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-	title = 'Testing library for WUI';
-	// cars$!: Observable<Car[]>;
-	config = {
-		url: '',
+	title = 'Testing library for NGX-WUI (Pre-V1.0.0)';
+	config: WuiDataViewerConfig = {
+		url: 'assets/cars.json',
 		model: Car,
+		paginator: {
+			// pageSize: 5,
+		},
 	};
-	constructor() {}
+
+	config2: WuiDataViewerConfig = {
+		url: 'https://jsonplaceholder.typicode.com/users',
+		model: UserView,
+		paginator: {
+			pageSize: 5,
+		},
+	};
 }

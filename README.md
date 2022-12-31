@@ -11,9 +11,9 @@ components made with SCSS and, if necessary, uses TypeScript functions to create
 
 ## Development server 💻
 
-First, you must build the library with the following command `npm run build ngx-wui`.
+First, you must build the library with the following command `npm run build`.
 
-Then, you can run `ng serve` for a dev server. Navigate to `http://localhost:4200/` to see demonstration page of the library.
+Then, you can run `npm run start` or `ng serve` for a dev server. Navigate to `http://localhost:4200/` to see demonstration page of the library.
 
 ## Further help ✉️
 

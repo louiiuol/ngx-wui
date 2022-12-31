@@ -1,3 +1,11 @@
-<h1>{{ title }}</h1>
+<h1 style="text-align: center; padding: 0.25em 0">{{ title }}</h1>
 <hr />
-<wui-data-viewer [config]="config"></wui-data-viewer>
+
+<details open style="height: 60vh">
+	<summary>Data Viewer (Users)</summary>
+	<wui-data-viewer [config]="config2"></wui-data-viewer>
+</details>
+<details open style="height: 60vh">
+	<summary>Data Viewer (Table or list of elements)</summary>
+	<wui-data-viewer [config]="config"></wui-data-viewer>
+</details>

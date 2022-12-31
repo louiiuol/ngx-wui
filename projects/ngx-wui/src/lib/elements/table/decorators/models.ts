@@ -4,12 +4,12 @@
 export class ColumnModel {
 	key: string;
 	order: number;
-	propertyType: any;
+	propertyType?: string;
 	canSort: boolean;
 
 	constructor(options: Partial<ColumnModel> = {}) {
 		this.key = options.key ?? '';
-		this.order = options.order || 0;
+		this.order = options.order || 100;
 		this.propertyType = options.propertyType;
 		this.canSort = options.canSort || false;
 	}

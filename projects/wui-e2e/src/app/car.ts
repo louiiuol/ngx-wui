@@ -6,7 +6,7 @@ export class Car {
 	id!: number;
 
 	@autoserializeAs(String)
-	@Column({})
+	@Column()
 	maker!: string;
 
 	@autoserializeAs(String)
