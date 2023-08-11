@@ -22,8 +22,6 @@
 		"@angular/platform-browser": "^14.2.7",
 		"@angular/platform-browser-dynamic": "^14.2.7",
 		"@angular/router": "^14.2.7",
-		"bulma": "^0.9.3",
-		"cerializr": "^3.1.4",
 		"ngx-wui": "0.1.0",
 		"reflect-metadata": "^0.1.13",
 		"rxjs": "~7.5.0",
