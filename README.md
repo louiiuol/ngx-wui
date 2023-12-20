@@ -1,6 +1,7 @@
 # NGX-WUI DEMO Workspace 🎉
 
-> This workspace helps demonstrate what can be done with the `ngx-wui` library.
+> Neat and effective library of angular components based on material design, helping
+> developers displaying data, requesting APis, submitting data via forms and build layout..
 
 ## Description 📜
 

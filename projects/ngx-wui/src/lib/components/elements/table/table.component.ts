@@ -15,7 +15,7 @@ import {MatSort, MatSortModule, Sort} from '@angular/material/sort';
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
 
 import {ColumnModel, TableModel, tableSymbol} from './decorators';
-import {WuiLoaderComponent} from '../../components/loader.component';
+import {WuiLoaderComponent} from '../../loader.component';
 
 // Simple type to represents @Input data's type (for now simply an array of any obj)
 export type DataType = any[];
