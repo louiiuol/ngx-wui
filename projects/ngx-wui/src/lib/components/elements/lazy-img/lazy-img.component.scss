@@ -1,0 +1,23 @@
+:host {
+	display: inline-block;
+	width: 100%;
+	aspect-ratio: 16/9;
+	overflow: hidden;
+	border-radius: 7px;
+	#skeleton {
+		width: 100%;
+		height: auto;
+		fill: #999999;
+		aspect-ratio: 16/9;
+		background: #efefefef;
+	}
+	img {
+		width: 100%;
+		aspect-ratio: 16/9;
+		height: auto;
+	}
+}
+
+body.darkMode :host #skeleton {
+	background: #4b4b4b;
+}
