@@ -12,7 +12,7 @@ export interface FilterOptions {
 
 export interface DataTableAction {
 	name: string;
-	action: {(data: string): void};
+	action: (data: string) => any;
 	disabled?: boolean;
 }
 
@@ -24,8 +24,8 @@ export interface DataTableActions {
 // Interface to display
 // ex: User { uuid, name, email, ...}
 // Filters to apply
-// Actions availables
-//	- globaly (with selection)
+// Actions available
+//	- globally (with selection)
 // -  individually (in column)
 // +bonus: hasPaginator
 export interface DataTableConfig {

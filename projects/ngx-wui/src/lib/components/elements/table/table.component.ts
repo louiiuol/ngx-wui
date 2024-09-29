@@ -15,7 +15,7 @@ import {MatSort, MatSortModule, Sort} from '@angular/material/sort';
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
 
 import {ColumnModel, TableModel, tableSymbol} from './decorators';
-import {WuiLoaderComponent} from '../../loader.component';
+import {LoaderComponent} from '../loader/loader.component';
 
 // Simple type to represents @Input data's type (for now simply an array of any obj)
 export type DataType = any[];
@@ -34,7 +34,7 @@ export type DataType = any[];
 		BrowserAnimationsModule,
 		MatTableModule,
 		MatSortModule,
-		WuiLoaderComponent,
+		LoaderComponent,
 	],
 	providers: [CdkColumnDef],
 	template: `
@@ -75,7 +75,7 @@ export type DataType = any[];
 			<div
 				class="wui-table-message flexed-centered"
 				*ngIf="error; else EmptyList">
-				<p class="error-title">An error occured while fetching data!</p>
+				<p class="error-title">An error occurred while fetching data!</p>
 				<p>
 					<span>
 						Status: <em>{{ error.status }}</em>
@@ -152,7 +152,7 @@ export class WuiTableComponent {
 
 	/**
 	 * Will render or refresh table whenever new values are given.
-	 * Annoted propeties with '@Column() will be rendered w/ given options
+	 * Annotated properties with '@Column() will be rendered w/ given options
 	 * @param source Array of any objects (must be all same type)
 	 */
 	private renderTable = (source: DataType | MatTableDataSource<any>): void => {

@@ -9,7 +9,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
  */
 @Component({
 	standalone: true,
-	selector: 'app-loader',
+	selector: 'wui-loader',
 	template: `<span class="text-primary"></span>`,
 	styleUrls: ['./loader.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
